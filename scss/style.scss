@@ -1,0 +1,52 @@
+@use './_abstracts/mixins' as *;
+@use './_abstracts/variables' as *;
+@use './_abstracts/colors' as c; //private
+@use './_components/elements' as *;
+//$grid__bp-md: 768;
+//$grid__bp-lg: 991;
+
+
+.container {
+    @include center-ele();
+    margin-top: 15%;
+&__row {
+
+    @include center-ele();
+    width: 50%;
+    border-radius: 10px;
+    background-color: c.$fifthcolor;
+    box-shadow: 10px 8px 20px c.$sixthcolor;
+}
+
+}
+.large-title{
+    text-align: center;
+    margin-top: 100px;
+    font-size:x-large;
+    font-family:'Times New Roman', Times, serif ;
+    font-style: italic;
+}
+
+.input-ordinary,.input-textarea{
+    @include element-form ();
+}
+.button-primary {
+    background-color:c.$primarycolor;
+    color: c.$fourthcolor;
+    padding: 12px 20px;
+    border: none;
+    width: 150px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 70px;
+    
+    &:hover {
+        box-shadow: 10px 8px 20px c.$secondarycolor;
+        background-color: c.$thirdcolor;
+    }
+}
+
+$map-grid-props: ('--sm': $grid__bp-sm, '--md': $grid__bp-md, '--lg': $grid__bp-lg);
+@each $modifier , $breakpoint in $map-grid-props {
+@include create-col-classes($modifier, $grid__cols, $breakpoint);
+}

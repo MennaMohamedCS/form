@@ -1,0 +1,55 @@
+@import 'colors' ; 
+@mixin create-mq($breakpoint) {
+    @if($breakpoint == 0) {
+    @content;
+    } @else {
+    @media screen and (min-width: $breakpoint *1px) {
+        @content;
+    }
+    }
+}
+
+@mixin create-col-classes($modifier, $grid__cols, $breakpoint) {
+    @include create-mq($breakpoint) {
+    @for $i from 1 through $grid__cols {
+        .container {
+        &__col#{$modifier}-#{$i} {
+        width: (100 / ($grid__cols / $i) ) * 1%;
+        }}
+    }
+    }
+}
+
+
+// @mixin create-col-classes($modifier, $grid__cols, $breakpoint) {
+//     @if($breakpoint == 0) {
+//         @content;
+//         } @else {
+//         @media screen and (min-width: $breakpoint *1px) {
+//         @for $i from 1 through $grid__cols {
+//             .container {
+//             &__col#{$modifier}-#{$i} {
+//             width: (100 / ($grid__cols / $i) ) * 1%;
+//             }}
+//         }
+//     }
+// }
+// }
+
+@mixin center-ele
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@mixin element-form{
+    width: 50%;
+    padding: 12px;
+    margin-top:10px ;
+    border-radius: 4px;
+    &:hover {
+        box-shadow: 10px 8px 20px $seventhcolor;
+    }
+}
+    
