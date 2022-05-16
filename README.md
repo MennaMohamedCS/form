@@ -1,5 +1,7 @@
 # form
-Responsive Form:
-using :-
-  -HTML
-  -SASS
+# Responsive Form
+## Technologies:
+```
+HTML
+SASS
+```
